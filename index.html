@@ -1,0 +1,21 @@
+<h3>I'll show you as many boxes as you tell me</h3>
+<h4>If you also append a valid color, I'll make the boxes that color</h4>
+
+<div class="container" style="display:grid; grid-template-columns: repeat(5,1fr); gap: .25rem; width:40rem;">
+{% if not amount %}
+    <p>Default amount: {{ default }}</p>
+    {% for x in range(0,default): %}
+        <div class="blue-box" style="width:3rem; height:3rem; background-color:blue;"></div>
+    {% endfor %}
+{% elif amount and not color %}
+    <p>Number of boxes: {{ amount }}</p>
+    {% for x in range(0, amount): %}
+        <div class="blue-box" style="width:3rem; height:3rem; background-color:blue;"></div>
+    {% endfor %}
+{% else %}
+    <p>Number of boxes: {{ amount }}</p>
+    {% for x in range(0, amount): %}
+    <div class="blue-box" style="width:3rem; height:3rem; {{color}}"></div>
+    {% endfor %}
+{% endif %}
+</div>
